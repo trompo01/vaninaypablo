@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUESTROS LIBROS EN AMAZON</title>
+<meta name="description" content="Libros de Vanina Vergara y Pablo Mera disponibles en Amazon y Spotify">
+<style>
+  /* ——— Base ——— */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: #050507;
+    background-image: 
+      radial-gradient(1200px 800px at 50% -20%, rgba(80,220,255,0.10), transparent 60%),
+      radial-gradient(900px 600px at 85% 15%, rgba(120,100,255,0.06), transparent 65%),
+      radial-gradient(700px 500px at 15% 80%, rgba(80,220,255,0.05), transparent 60%);
+    color: #e6e8ec;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* Premium grain */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: .035;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  /* ——— Header ——— */
+  header {
+    text-align: center;
+    padding: 32px 0 64px;
+  }
+  h1 {
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 200;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #f0f4f8;
+    text-shadow: 0 0 24px rgba(80,220,255,0.25), 0 0 60px rgba(80,220,255,0.12);
+    opacity: 0.95;
+  }
+
+  /* ——— Layout ——— */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .book {
+    position: relative;
+    padding: 32px 28px 28px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+    border: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(10px) saturate(110%);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .book-title {
+    font-size: clamp(20px, 2.6vw, 28px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .book-subtitle {
+    font-size: 15px;
+    color: #9aa0a6;
+    font-style: italic;
+    margin-bottom: 14px;
+    font-weight: 300;
+  }
+
+  .book-author {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b8c2cc;
+    margin-bottom: 28px;
+    opacity: 0.9;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  /* ——— 3D Cards ——— */
+  .card-3d {
+    position: relative;
+    display: block;
+    padding: 22px;
+    border-radius: 18px;
+    background: rgba(10,12,16,0.6);
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 18px rgba(80,220,255,0.15), inset 0 1px 0 rgba(255,255,255,0.03);
+    color: inherit;
+    text-decoration: none;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: border-color .3s ease, box-shadow .3s ease, background .3s ease;
+    animation: float 6s ease-in-out infinite;
+    will-change: transform;
+    isolation: isolate;
+  }
+
+  .card-3d:nth-child(1) { animation-delay: 0s; }
+  .card-3d:nth-child(2) { animation-delay: 0.4s; }
+  .card-3d:nth-child(3) { animation-delay: 0.8s; }
+  .card-3d:nth-child(4) { animation-delay: 1.2s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-5px) }
+  }
+
+  /* Sparking glow */
+  .card-3d::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(500px circle at var(--mx,50%) var(--my,50%), rgba(80,220,255,0.18), transparent 40%);
+    opacity: 0;
+    transition: opacity .35s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Subtle particle sparkles */
+  .card-3d::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 20% 30%, rgba(180,240,255,0.6) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 60%, rgba(180,240,255,0.5) 50%, transparent 51%),
+      radial-gradient(1px 1px at 40% 80%, rgba(180,240,255,0.4) 50%, transparent 51%),
+      radial-gradient(1px 1px at 85% 25%, rgba(180,240,255,0.5) 50%, transparent 51%);
+    opacity: 0;
+    transition: opacity .35s ease;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .card-3d:hover, .card-3d:focus-visible {
+    border-color: rgba(125,211,252,0.35);
+    box-shadow: 0 0 28px rgba(80,220,255,0.25), 0 12px 40px rgba(0,0,0,0.6);
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+    outline: none;
+  }
+
+  .card-3d:hover::before, .card-3d:focus-visible::before,
+  .card-3d:hover::after, .card-3d:focus-visible::after {
+    opacity: 1;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+    transform: translateZ(20px);
+  }
+
+  .card-label {
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+
+  .card-open {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #7dd3fc;
+    opacity: 0.85;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  .card-3d:hover .card-open { transform: translateX(2px); opacity: 1; }
+
+  /* ——— Footer ——— */
+  footer {
+    text-align: center;
+    margin-top: 72px;
+    font-size: 12px;
+    color: #7a828c;
+    letter-spacing: 0.04em;
+  }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 900px) {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    header { padding: 24px 0 48px; }
+    .book { padding: 28px 22px; }
+  }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 36px 16px 64px; }
+    .links-grid { grid-template-columns: 1fr; }
+    .card-3d { padding: 20px; animation: none; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .card-3d { animation: none !important; transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Nuestros Libros en Amazon</h1>
+    </header>
+
+    <main class="container">
+      <!-- LEFT BOOK -->
+      <section class="book" aria-labelledby="book1-title">
+        <h2 id="book1-title" class="book-title">Cuando la Familia se Rompe en Silencio</h2>
+        <p class="book-subtitle">La historia jamás contada de una mujer que se negó a desaparecer</p>
+        <p class="book-author">Autora: Vanina Vergara</p>
+
+        <div class="links-grid">
+          <a class="card-3d" href="https://open.spotify.com/episode/0NPQyJXWyQDAiU5YjKMuTu" target="_blank" rel="noopener noreferrer" aria-label="Reseña hablada en Spotify">
+            <div class="card-content">
+              <div class="card-label">Reseña hablada</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+          <a class="card-3d" href="https://www.amazon.com/dp/B0GX32NHDV" target="_blank" rel="noopener noreferrer" aria-label="Kindle Version en Amazon">
+            <div class="card-content">
+              <div class="card-label">Kindle Version</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+          <a class="card-3d" href="https://www.amazon.com/CUANDO-FAMILIA-ROMPE-SILENCIO-desaparecer/dp/B0GXK7J5GJ/ref=tmm_pap_swatch_0" target="_blank" rel="noopener noreferrer" aria-label="Tapa Blanda en Amazon">
+            <div class="card-content">
+              <div class="card-label">Tapa Blanda</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+          <a class="card-3d" href="https://www.amazon.com/CUANDO-FAMILIA-ROMPE-SILENCIO-desaparecer/dp/B0GXRZ1356/ref=tmm_hrd_swatch_0" target="_blank" rel="noopener noreferrer" aria-label="Tapa Dura en Amazon">
+            <div class="card-content">
+              <div class="card-label">Tapa Dura</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- RIGHT BOOK -->
+      <section class="book" aria-labelledby="book2-title">
+        <h2 id="book2-title" class="book-title">Manual del Inadaptado Lúcido</h2>
+        <p class="book-subtitle">No encajar es una Ventaja. Un manual para pensar mejor y vivir libre</p>
+        <p class="book-author">Autor: Pablo Mera</p>
+
+        <div class="links-grid">
+          <a class="card-3d" href="https://open.spotify.com/episode/68ViKPcRmymkiRUbdKDO9d?nd=1&dlsi=47136d4ef78a4afa" target="_blank" rel="noopener noreferrer" aria-label="Reseña hablada en Spotify">
+            <div class="card-content">
+              <div class="card-label">Reseña hablada</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+          <a class="card-3d" href="https://www.amazon.com/dp/B0GX9ZZPCL" target="_blank" rel="noopener noreferrer" aria-label="Kindle Version en Amazon">
+            <div class="card-content">
+              <div class="card-label">Kindle Version</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+          <a class="card-3d" href="https://www.amazon.com/MANUAL-DEL-INADAPTADO-L%C3%9ACIDO-encajar/dp/B0GYYXMR9G/ref=tmm_pap_swatch_0" target="_blank" rel="noopener noreferrer" aria-label="Tapa Blanda en Amazon">
+            <div class="card-content">
+              <div class="card-label">Tapa Blanda</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+          <a class="card-3d" href="https://www.amazon.com/MANUAL-DEL-INADAPTADO-L%C3%9ACIDO-encajar/dp/B0GYZ4D8WN/ref=tmm_hrd_swatch_0" target="_blank" rel="noopener noreferrer" aria-label="Tapa Dura en Amazon">
+            <div class="card-content">
+              <div class="card-label">Tapa Dura</div>
+              <div class="card-open">Abrir →</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 — Disponible en Amazon y Spotify</footer>
+  </div>
+
+<script>
+  // True 3D tilt with sparking follow
+  (function() {
+    const cards = document.querySelectorAll('.card-3d');
+    const maxTilt = 12;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) return;
+
+    cards.forEach(card => {
+      let rect;
+
+      function updateTransform(x, y) {
+        rect = rect || card.getBoundingClientRect();
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const dx = (x - rect.left - cx) / cx;
+        const dy = (y - rect.top - cy) / cy;
+        
+        const rx = Math.max(-maxTilt, Math.min(maxTilt, dy * -maxTilt));
+        const ry = Math.max(-maxTilt, Math.min(maxTilt, dx * maxTilt));
+
+        card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.03,1.03)`;
+        card.style.setProperty('--mx', `${x - rect.left}px`);
+        card.style.setProperty('--my', `${y - rect.top}px`);
+      }
+
+      card.addEventListener('mousemove', (e) => {
+        updateTransform(e.clientX, e.clientY);
+      }, { passive: true });
+
+      card.addEventListener('mouseenter', () => {
+        rect = card.getBoundingClientRect();
+        card.style.transition = 'transform 0.12s ease-out';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 0.4s cubic-bezier(.2,.8,.2,1)';
+        card.style.transform = '';
+        rect = null;
+      });
+
+      // Touch tilt fallback
+      card.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          rect = card.getBoundingClientRect();
+          updateTransform(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      card.addEventListener('touchend', () => {
+        card.style.transform = '';
+        rect = null;
+      }, { passive: true });
+    });
+
+    // Device orientation subtle ambient tilt (mobile)
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', (e) => {
+        if (reduceMotion) return;
+        const beta = Math.max(-15, Math.min(15, e.beta || 0));
+        const gamma = Math.max(-15, Math.min(15, e.gamma || 0));
+        cards.forEach(card => {
+          if (card.matches(':hover')) return;
+          card.style.transform = `perspective(1000px) rotateX(${beta * 0.15}deg) rotateY(${gamma * 0.15}deg)`;
+        });
+      }, true);
+    }
+  })();
+</script>
+</body>
+</html>
