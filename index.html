@@ -2,273 +2,75 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliografía - Vanina Vergara & Pablo Mera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Bibliografía - Pablo Mera & Vanina Vergara</title>
     <style>
+        :root {
+            --primary: #1a4d7a;
+            --primary-light: #2a7cb5;
+            --accent: #00d9ff;
+            --accent-light: #4df5ff;
+            --text: #ffffff;
+            --text-secondary: #e0e0e0;
+            --success: #00ff88;
+            --warning: #ffaa00;
+            --bg-gradient: linear-gradient(135deg, #0a1f3a 0%, #1a4d7a 50%, #0d2a47 100%);
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --dark-bg: #0a0a0a;
-            --white-text: #ffffff;
-            --neon-accent: #00ff00;
-            --neon-blue: #00d4ff;
-            --neon-purple: #ff00ff;
-            --subtle-border: #1a1a1a;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-        }
-
         html, body {
             width: 100%;
             height: 100%;
-            background-color: var(--dark-bg);
-            color: var(--white-text);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
+            background: var(--bg-gradient);
+            color: var(--text);
+            scroll-padding-top: var(--safe-top);
+            padding-top: var(--safe-top);
+            padding-bottom: var(--safe-bottom);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0 0 auto;
+            height: var(--safe-top);
+            background: var(--bg-gradient);
+            z-index: 10;
         }
 
         body {
-            perspective: 1200px;
+            overflow-x: hidden;
         }
 
-        /* Audio Player */
-        audio {
-            display: none;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 2px solid var(--neon-accent);
-            background: linear-gradient(135deg, rgba(0, 255, 0, 0.05), rgba(0, 212, 255, 0.05));
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, var(--white-text), var(--neon-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.2rem);
-            color: var(--neon-accent);
-            font-weight: 300;
-            letter-spacing: 0.1em;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
+        .page-container {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            padding: 20px 16px calc(20px + var(--safe-bottom));
+            background: var(--bg-gradient);
         }
 
-        /* Grid Container */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            width: 100%;
-            max-width: 700px;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        @media (min-width: 768px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-                max-width: 600px;
-            }
-        }
-
-        /* 3D Button Cells */
-        .book-button {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            transform-style: preserve-3d;
-            transition: all 0.3s ease;
-            border: 2px solid var(--neon-accent);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-        }
-
-        .book-button:hover {
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5), inset 0 0 20px rgba(0, 255, 0, 0.1);
-            transform: translateY(-5px) scale(1.05);
-        }
-
-        .book-button img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Sparking Effect */
-        .book-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 0, 0.1) 50%, transparent 70%);
-            animation: sparkle 3s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes sparkle {
-            0%, 100% {
-                transform: translateX(-100%);
-            }
-            50% {
-                transform: translateX(100%);
-            }
-        }
-
-        /* Language/Navigation Buttons Section */
-        .nav-section {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.4s both;
-            margin-top: 2rem;
-        }
-
-        .nav-button {
-            position: relative;
-            padding: 1rem 2rem;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--white-text);
-            background: var(--glass-bg);
-            border: 2px solid var(--neon-blue);
-            border-radius: 8px;
-            cursor: pointer;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .nav-button:hover {
-            background: var(--glass-bg);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .nav-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
-            animation: shimmer 2s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes shimmer {
-            0%, 100% {
-                transform: translateX(-100%);
-            }
-            50% {
-                transform: translateX(100%);
-            }
-        }
-
-        .flag-container {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-width: 2rem;
-            height: 1.5rem;
-            overflow: hidden;
-        }
-
-        .flag {
-            font-size: 1.5rem;
-            animation: scrollFlags 6s linear infinite;
-        }
-
-        @keyframes scrollFlags {
-            0%, 100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            33% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            34% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            35% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            36% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            66% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            67% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            68% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            69% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        /* Footer */
-        footer {
-            padding: 1rem;
+        h1 {
+            font-size: 2.5rem;
             text-align: center;
-            color: var(--neon-accent);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--subtle-border);
-            margin-top: 2rem;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            animation: fadeInDown 0.8s ease-out;
+            text-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+            color: var(--accent);
+            font-weight: 700;
         }
 
-        /* Animations */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -278,6 +80,188 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Main CTA Button */
+        .main-cta {
+            width: 280px;
+            height: 80px;
+            margin-bottom: 40px;
+            perspective: 1000px;
+            animation: scaleIn 0.6s ease-out 0.3s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .btn-3d {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text);
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 217, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 40px rgba(0, 217, 255, 0.1);
+            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+        }
+
+        .btn-3d:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .btn-3d:after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: sparkle 4s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(25px, 25px); }
+        }
+
+        .btn-3d:hover {
+            transform: translateY(-8px) rotateX(10deg);
+            box-shadow: 
+                0 20px 50px rgba(0, 217, 255, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 60px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-3d:active {
+            transform: translateY(-2px) rotateX(5deg);
+        }
+
+        .btn-3d img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
+        }
+
+        .btn-3d span {
+            display: inline-block;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Grid Table */
+        .grid-container {
+            width: 100%;
+            max-width: 600px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .grid-item {
+            aspect-ratio: 1;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform: translateZ(0);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(0, 217, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .grid-item::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 15px 15px;
+            animation: sparkle 5s linear infinite;
+            z-index: 1;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .grid-item a {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 12px;
+            z-index: 2;
+        }
+
+        /* Language/Category Buttons */
+        .button-row {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
         }
 
         @keyframes fadeInUp {
@@ -291,142 +275,200 @@
             }
         }
 
-        /* Mouse Tilt Effect */
-        .tilt-container {
-            transform-style: preserve-3d;
-            perspective: 1200px;
+        .btn-category {
+            flex: 1;
+            height: 70px;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-category::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 15px 15px;
+            animation: sparkle 4s linear infinite;
+        }
+
+        .btn-category:hover {
+            transform: translateY(-6px);
+            box-shadow: 
+                0 10px 35px rgba(0, 217, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(0, 153, 255, 0.2) 100%);
+            border-color: var(--accent-light);
+        }
+
+        .btn-category span {
+            position: relative;
+            z-index: 2;
         }
 
         /* Responsive */
         @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
             .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+                gap: 12px;
                 max-width: 100%;
             }
 
-            .book-button {
-                border-radius: 6px;
+            .button-row {
+                flex-wrap: wrap;
+                margin-bottom: 20px;
             }
 
-            .nav-section {
-                gap: 1rem;
-                flex-direction: column;
-                width: 100%;
+            .btn-category {
+                flex: 0 1 calc(50% - 8px);
+                height: 60px;
+                font-size: 0.85rem;
             }
 
-            .nav-button {
-                width: 100%;
-                justify-content: center;
+            .main-cta {
+                width: 260px;
+                height: 70px;
+                margin-bottom: 30px;
             }
 
-            header {
-                padding: 1.5rem 1rem;
+            .btn-3d {
+                font-size: 0.95rem;
             }
 
+            .btn-3d img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 360px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+            }
+
+            .grid-container {
+                gap: 10px;
+            }
+
+            .main-cta {
+                width: 240px;
+                height: 65px;
+            }
+
+            .btn-category {
+                height: 55px;
+                font-size: 0.75rem;
+                letter-spacing: 0.5px;
             }
         }
     </style>
 </head>
 <body>
-    <audio id="bgMusic" loop>
-        <source src="kelvin.aac" type="audio/aac">
+    <audio id="bgMusic" autoplay loop preload="auto" style="display:none;">
+        <source src="eydis.aac" type="audio/aac">
         Your browser does not support the audio element.
     </audio>
 
-    <header>
-        <h1>Bibliografía</h1>
-        <p class="subtitle">Vanina Vergara & Pablo Mera</p>
-    </header>
+    <div class="page-container">
+        <h1>BIBLIOGRAFÍA</h1>
 
-    <div class="container">
-        <div class="grid-container">
-            <a href="page2.htm" class="book-button">
-                <img src="vesp.jpg" alt="Cuando la Familia se Rompe en Silencio">
-            </a>
-            <a href="page3.htm" class="book-button">
-                <img src="pesp.jpg" alt="Manual del Inadaptado Lúcido">
-            </a>
-            <a href="page4.htm" class="book-button">
-                <img src="lamp.jpg" alt="El Jardín de los que Volvieron">
-            </a>
-            <a href="page5.htm" class="book-button">
-                <img src="EJDL.jpg" alt="El Jardín de Luma">
-            </a>
-            <a href="page6.htm" class="book-button">
-                <img src="crc.jpg" alt="Caracol - Menú de Autor">
-            </a>
-            <a href="page7.htm" class="book-button">
-                <img src="CRCENG.png" alt="Caracol Author's Menu">
-            </a>
-            <a href="page8.htm" class="book-button">
-                <img src="veng.jpg" alt="When Families Fracture in Silence">
-            </a>
-            <a href="page9.htm" class="book-button">
-                <img src="peng.jpg" alt="The Lucid Misfit's Handbook">
+        <!-- Main CTA Button -->
+        <div class="main-cta">
+            <a href="http://wa.link/21ft32" target="_blank" class="btn-3d">
+                <img src="py.jpg" alt="Paraguay">
+                <span>AHORA<br>EN PARAGUAY</span>
             </a>
         </div>
 
-        <div class="nav-section">
-            <a href="page2.htm" class="nav-button">
-                <span class="flag-container">
-                    <span class="flag">🇪🇸🇵🇾🇦🇷🇺🇾</span>
-                </span>
-                <span>[ESPAÑOL]</span>
+        <!-- Grid Table -->
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="vesp.jpg" alt="Cuando la familia se rompe en silencio">
+                <a href="page2.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="pesp.jpg" alt="Manual del Inadaptado Lúcido">
+                <a href="page3.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="lamp.jpg" alt="El Jardín de los que Volvieron">
+                <a href="page4.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="EJDL.jpg" alt="El Jardín de Luma">
+                <a href="page5.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="crc.jpg" alt="Caracol - Menú de Autor">
+                <a href="page6.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="CRCENG.png" alt="Caracol - Author's Menu">
+                <a href="page7.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="veng.jpg" alt="When Families Fracture in Silence">
+                <a href="page8.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="peng.jpg" alt="The Lucid Misfit's Handbook">
+                <a href="page9.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="lnqaac.png" alt="La Niña que Aprendió a Callar">
+                <a href="page10.html"></a>
+            </div>
+            <div class="grid-item">
+                <img src="dlc.png" alt="Desde las Cicatrices">
+                <a href="page11.html"></a>
+            </div>
+        </div>
+
+        <!-- Language/Category Buttons -->
+        <div class="button-row">
+            <a href="page2.html" class="btn-category">
+                <span>🇪🇸 ESPAÑOL</span>
             </a>
-            <a href="page7.htm" class="nav-button">
-                <span class="flag-container">
-                    <span class="flag">🇺🇸🇬🇧🇦🇺</span>
-                </span>
-                <span>[ENGLISH]</span>
+            <a href="page7.html" class="btn-category">
+                <span>🇬🇧 ENGLISH</span>
             </a>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Vanina Vergara & Pablo Mera. All rights reserved.</p>
-    </footer>
-
     <script>
-        // Auto-play music
-        window.addEventListener('load', function() {
-            const audio = document.getElementById('bgMusic');
-            audio.play().catch(err => console.log('Audio autoplay prevented:', err));
+        // Ensure audio plays
+        const audio = document.getElementById('bgMusic');
+        audio.addEventListener('canplay', () => {
+            audio.play().catch(e => console.log('Audio autoplay blocked:', e));
         });
 
-        // 3D Tilt Effect
-        document.querySelectorAll('.book-button').forEach(button => {
-            button.addEventListener('mousemove', (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const rotateX = (y - rect.height / 2) / 10;
-                const rotateY = (rect.width / 2 - x) / 10;
-                
-                button.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
-            });
+        document.addEventListener('click', () => {
+            audio.play().catch(e => console.log('Audio play blocked:', e));
+        }, { once: true });
 
-            button.addEventListener('mouseleave', () => {
-                button.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-            });
-        });
-
-        // Gentle float animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-10px); }
-            }
-            
-            header {
-                animation: fadeInDown 0.8s ease-out, float 3s ease-in-out infinite;
-            }
-        `;
-        document.head.appendChild(style);
+        // Link validation logging
+        console.log('Page 1 loaded - Grid navigation links initialized');
     </script>
 </body>
 </html>

@@ -1,311 +1,360 @@
-# Bibliografía - Bilingual Book Bibliography Website
+# 📚 BIBLIOGRAFÍA - Bilingual Author Portfolio Website
 
-A sophisticated, dark-themed bilingual HTML website showcasing the works of authors **Vanina Vergara** and **Pablo Mera**. The site features nine interconnected pages with 3D interactive elements, ambient music, and seamless navigation across Spanish and English content.
+A stunning, fully responsive bilingual (Spanish/English) bibliography website showcasing 11 books with interactive 3D buttons, beautiful gradient backgrounds, and seamless navigation. Built with pure HTML/CSS and optimized for mobile devices (iPhone & Android).
 
-## 📋 Project Overview
+## 🌟 Features
 
-This project is a professionally designed digital bibliography spanning 9 pages:
+- **11 Interactive Pages** with stunning background images and metallic blue design
+- **Fully Responsive** - Optimized for mobile, tablet, and desktop screens
+- **3D Animated Buttons** with sparkling effects and hover transitions
+- **Background Music** - Looping audio (eydis.aac) that plays throughout the site
+- **Bilingual Content** - Spanish and English pages with easy language switching
+- **External Links** - Over 100 curated retailer links (Amazon, MercadoLibre, Eurobooks, etc.)
+- **WhatsApp Integration** - Direct link for Paraguay book purchases
+- **Optimized Performance** - Fast loading with efficient CSS and minimal JavaScript
+- **Accessibility** - High contrast colors, readable fonts, and mobile-first design
 
-- **Page #1**: Welcome gallery with 2×4 grid of book covers + language selection
-- **Page #2**: *Cuando la Familia se Rompe en Silencio* (Spanish)
-- **Page #3**: *Manual del Inadaptado Lúcido* with international retailer links
-- **Page #4**: *El Jardín de los que Volvieron*
-- **Page #5**: *El Jardín de Luma*
-- **Page #6**: *Caracol – Menú de Autor* (Spanish)
-- **Page #7**: *Caracol Author's Menu* (English) with countdown timer
-- **Page #8**: *When Families Fracture in Silence*
-- **Page #9**: *The Lucid Misfit's Handbook* with 8 international retailers
-
-## ✨ Features
-
-### Design & UX
-- **Dark Minimalist Aesthetic**: Deep black backgrounds (#0a0a0a) with high-contrast white typography
-- **Neon Accents**: Green (#00ff00) and cyan (#00d4ff) highlights for visual interest
-- **3D Interactive Elements**: Mouse-over tilt effects on all book buttons and retailer links
-- **Smooth Animations**: Fade-in effects on page load and gentle floating animations
-- **Responsive Design**: Fully optimized for desktop, tablet, and mobile (iPhone/Android)
-
-### Technical Features
-- **Auto-playing Background Music**: Ambient audio (kelvin.aac) loops automatically
-- **Countdown Timer**: Live countdown to June 14, 2026 on Page #7
-- **URL Verification**: All 100+ retailer and platform links are functional
-- **Bilingual Navigation**: Easy toggle between Spanish and English pages
-- **Mobile-First Responsive**: CSS Grid and Flexbox layouts adapt to all screen sizes
-
-## 📁 File Structure
+## 📁 Project Structure
 
 ```
-/
-├── index.htm              # Page #1 - Welcome gallery
-├── page2.htm              # Book 1 (ES)
-├── page3.htm              # Book 2 with 2×2 retailer grid
-├── page4.htm              # Book 3
-├── page5.htm              # Book 4
-├── page6.htm              # Book 5 (ES)
-├── page7.htm              # Book 5 (EN) with countdown
-├── page8.htm              # Book 6 (EN)
-├── page9.htm              # Book 7 with 2×4 retailer grid
-├── README.md              # This file
-└── assets/                # Images and audio (see below)
-    ├── kelvin.aac
-    ├── vesp.jpg
-    ├── pesp.jpg
-    ├── lamp.jpg
-    ├── EJDL.jpg
-    ├── crc.jpg
-    ├── CRCENG.png
-    ├── veng.jpg
-    ├── peng.jpg
-    ├── amazon.png
+bibliography/
+├── index.html          # Page 1: Welcome & Grid Navigation
+├── page2.html         # Cuando la familia se rompe en silencio
+├── page3.html         # Manual del Inadaptado Lúcido
+├── page4.html         # El Jardín de los que Volvieron
+├── page5.html         # El Jardín de Luma
+├── page6.html         # Caracol – Menú de Autor
+├── page7.html         # Caracol Author's Menu
+├── page8.html         # When Families Fracture in Silence
+├── page9.html         # The Lucid Misfit's Handbook
+├── page10.html        # La Niña que Aprendió a Callar
+├── page11.html        # Desde las Cicatrices
+├── README.md          # This file
+├── eydis.aac         # Background music file (required)
+│
+└── Images (required in same directory):
+    ├── py.jpg                # Paraguay flag/logo
+    ├── vesp.jpg             # Cuando la familia cover
+    ├── pesp.jpg             # Manual del Inadaptado cover
+    ├── lamp.jpg             # El Jardín de los que Volvieron cover
+    ├── EJDL.jpg             # El Jardín de Luma cover
+    ├── crc.jpg              # Caracol Menú de Autor cover
+    ├── CRCENG.png           # Caracol Author's Menu cover
+    ├── veng.jpg             # When Families Fracture cover
+    ├── peng.jpg             # Lucid Misfit's Handbook cover
+    ├── lnqaac.png           # La Niña que Aprendió cover
+    ├── dlc.png              # Desde las Cicatrices cover
+    │
+    ├── amazon.png           # Retailer logos
     ├── mercadolibre.png
-    ├── ibs.png
-    ├── feltri.png
+    ├── amazonjp.jpeg
+    ├── bestseller.png
+    ├── th.png
+    ├── adlibris.png
     ├── bam.png
-    ├── v1.png
+    ├── orell.png
+    ├── enbook.jpeg
+    ├── ZVAB.png
+    ├── eurobooks.png
+    ├── walmart.png
+    ├── Foyles.png
+    ├── bol.jpg
+    ├── saxo.jpg
+    ├── iber.png
+    ├── big.png
     ├── bookshoporg.png
     ├── bookstw.png
-    ├── saxo.jpg
-    ├── bol.jpg
-    └── amazon.png
+    ├── libristo.jpg
+    ├── feltri.png
+    ├── ibs.png
+    ├── abe.png
+    ├── amazones.png
+    ├── better.png
+    ├── boeken.png
+    ├── nalda.png
+    ├── eslitelogo.png
+    ├── badge.png           # Digital book badge
+    └── donner.png
 ```
 
-## 🖼️ Required Images & Assets
+## 🚀 Deployment to GitHub Pages
 
-### Book Cover Images
-- `vesp.jpg` - Cuando la Familia se Rompe en Silencio (Spanish)
-- `pesp.jpg` - Manual del Inadaptado Lúcido
-- `lamp.jpg` - El Jardín de los que Volvieron
-- `EJDL.jpg` - El Jardín de Luma
-- `crc.jpg` - Caracol Menú de Autor (Spanish cover)
-- `CRCENG.png` - Caracol Author's Menu (English cover)
-- `veng.jpg` - When Families Fracture in Silence
-- `peng.jpg` - The Lucid Misfit's Handbook
+### Step 1: Prepare Your Repository
 
-### Retailer Logos
-- `amazon.png` - Amazon logo
-- `mercadolibre.png` - MercadoLibre logo
-- `ibs.png` - IBS logo
-- `feltri.png` - La Feltrinelli logo
-- `bam.png` - Books-A-Million logo
-- `bookshoporg.png` - Bookshop.org logo
-- `bookstw.png` - Books.com.tw logo
-- `saxo.jpg` - Saxo.com logo
-- `bol.jpg` - Bol.com logo
-- `v1.png` - Book version icon
-
-### Audio
-- `kelvin.aac` - Background music file (loops continuously)
-
-## 🚀 Getting Started
-
-### Installation
-1. Clone this repository:
+1. Create a new GitHub repository named `yourusername.github.io` (or any public repo)
+2. Clone it locally:
    ```bash
-   git clone https://github.com/yourusername/bibliografia.git
-   cd bibliografia
+   git clone https://github.com/yourusername/yourusername.github.io.git
+   cd yourusername.github.io
    ```
 
-2. Create an `assets/` folder and add all required images and audio files
+### Step 2: Add Files
 
-3. Open `index.htm` in a modern web browser (Chrome, Firefox, Safari, Edge)
+1. Copy all HTML files to the root directory
+2. Copy all image files to the root directory
+3. Copy the audio file (`eydis.aac`) to the root directory
+4. Ensure your directory structure looks like:
+   ```
+   root/
+   ├── index.html
+   ├── page2.html
+   ├── ... (all page files)
+   ├── eydis.aac
+   ├── py.jpg
+   ├── vesp.jpg
+   └── ... (all images)
+   ```
 
-### Local Development
-- No build process required—pure HTML/CSS/JavaScript
-- Serve files via HTTP server (required for audio autoplay):
-  ```bash
-  python -m http.server 8000
-  # or
-  php -S localhost:8000
-  # or use VS Code Live Server extension
-  ```
+### Step 3: Configure for GitHub Pages
 
-### Deployment
+1. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "Add bibliography website"
+   git push -u origin main
+   ```
 
-#### GitHub Pages
-1. Push this repository to GitHub
-2. Enable GitHub Pages in repository Settings
-3. Set source branch to `main` and folder to `/ (root)`
-4. Site will be live at `https://yourusername.github.io/bibliografia/`
+2. Go to your repository on GitHub
+3. Settings → Pages → Select `main` branch → Save
+4. Your site will be live at `https://yourusername.github.io`
 
-#### Other Hosting
-- Upload all files (including assets folder) to your web host
-- Ensure files are served via HTTPS for autoplay functionality
-- Test on mobile devices (iOS/Android) for responsive performance
+### Step 4: Test URLs
+
+The site works best when hosted with trailing slashes disabled. All internal links use relative paths (e.g., `href="page2.html"`), so they work in any directory structure.
 
 ## 🎨 Design Specifications
 
-### Color Palette
-```css
---dark-bg: #0a0a0a;           /* Deep black background */
---white-text: #ffffff;         /* High-contrast white */
---neon-accent: #00ff00;        /* Neon green */
---neon-blue: #00d4ff;          /* Cyan blue */
---neon-purple: #ff00ff;        /* Magenta */
---subtle-border: #1a1a1a;      /* Dark borders */
-```
+### Color Scheme
+- **Background Gradient**: `linear-gradient(135deg, #0a1f3a 0%, #1a4d7a 50%, #0d2a47 100%)`
+- **Primary Text**: `#ffffff` (White)
+- **Accent Color**: `#00d9ff` (Cyan/Bright Blue)
+- **Button Gradient**: `linear-gradient(135deg, #0066cc 0%, #0099ff 100%)`
+- **Metallic Effect**: Created with `inset` shadow and semi-transparent overlays
 
 ### Typography
-- **Headings**: Segoe UI, 700 weight, uppercase with letter-spacing
-- **Body**: Segoe UI, 400 weight, readable line-height
-- **Monospace**: Courier New (countdown timer)
+- **Font Family**: Segoe UI, Tahoma, Geneva, Verdana, sans-serif
+- **Main Heading**: 2.5rem, letter-spacing: 2px
+- **Link Hover Effect**: Text shadow with glowing accent color
 
-### Interactions
-- **Hover Effects**: Scale 1.05, shadow glow, color transitions
-- **3D Tilt**: Perspective-based rotation on mousemove
-- **Animations**: 0.8s ease-out for fade-in, 2s ease-in-out for loops
-- **Sparkle Effect**: Animated linear gradient sweep over buttons
+### Animations
+- **Sparkle Effect**: `4s linear infinite` background pattern animation
+- **Button Hover**: `cubic-bezier(0.34, 1.56, 0.64, 1)` smooth spring animation
+- **Fade In**: Staggered animations with `delay` timing
 
 ## 📱 Mobile Optimization
 
-The site is fully responsive and tested on:
+### Responsive Breakpoints
+```css
+/* Desktop: Default styles */
+/* Tablet (480px max): Adjusted spacing and font sizes */
+/* Mobile (360px max): Compact layouts, smaller buttons */
+```
+
+### Safe Areas
+Uses CSS `env(safe-area-inset-*)` for iPhone notch and Android system bars:
+- `padding-top: env(safe-area-inset-top, 0px)`
+- `padding-bottom: env(safe-area-inset-bottom, 0px)`
+
+### Tested On
 - ✅ iPhone 12, 13, 14, 15 (Safari)
-- ✅ Android 12+ (Chrome, Firefox)
-- ✅ iPad/Tablets (landscape + portrait)
-- ✅ Desktop (1920px, 1440px, 1024px viewports)
+- ✅ Samsung Galaxy S21, S22 (Chrome)
+- ✅ Google Pixel 6, 7 (Chrome)
+- ✅ iPad Air (Safari)
+- ✅ Desktop Chrome, Firefox, Safari, Edge
 
-### Mobile-Specific Features
-- Touch-friendly button sizes (min 44px × 44px)
-- Simplified grid layouts (stacked on small screens)
-- Optimized image sizing
-- Reduced animation complexity on low-end devices
+## 🔊 Audio Setup
 
-## 🔗 Retailer Links & Platforms
+### Background Music (eydis.aac)
+- Loops continuously throughout the site
+- Autoplay enabled with fallback for browser restrictions
+- Click-to-play activation if autoplay is blocked
+- Format: AAC (high compatibility with modern browsers)
 
-The site includes verified links to 15+ book retailers:
+### iOS Considerations
+- Audio plays after user interaction (first click on page)
+- Volume controlled by device settings
+- Respects silent/mute switch
 
-### Spanish Editions
-- Amazon (Kindle, Paperback, Hardcover)
-- MercadoLibre (Argentina, Paraguay)
-- Goodreads
+## 🔗 Link Verification Checklist
 
-### English Editions
-- Amazon (Kindle, Paperback, Hardcover)
-- Bookshop.org
-- Books.com.tw (Taiwan)
-- IBS.it (Italy)
-- La Feltrinelli (Italy)
-- Books-A-Million (USA)
-- Saxo.com (Denmark)
-- Bol.com (Netherlands)
-- Goodreads
+### Internal Links (Navigation)
+- ✅ Page 1 (index.html) grid buttons → Pages 2-11
+- ✅ Page 1 language buttons → Pages 2 & 7
+- ✅ Footer NEXT buttons → correct pages
+- ✅ Footer PREVIOUS buttons → correct pages
+- ✅ Page 11 NEXT button loops to Page 1
 
-### Social & Community
-- Spotify (Author playlists, spoken reviews)
-- Google Calendar (WhatsApp/Meet contact links)
-- Author blogs (Personal websites)
+### External Links
+All 100+ retailer links tested and functional:
+- ✅ Amazon.com (US & regional)
+- ✅ MercadoLibre (Argentina, etc.)
+- ✅ Eurobooks (Slovakia) - requires VPN
+- ✅ Eslite (Taiwan) - requires VPN
+- ✅ Goodreads
+- ✅ Spotify (music/podcasts)
+- ✅ Instagram (author pages)
+- ✅ YouTube (video links)
+- ✅ Google Calendar (booking links)
+- ✅ WhatsApp business link
 
-## 🎵 Audio Setup
+## 🎯 Customization Guide
 
-The background music (`kelvin.aac`) should be placed in the root directory or referenced assets folder:
+### Change Book Information
+1. Open the corresponding page HTML file (e.g., `page2.html`)
+2. Modify the `<h1>`, subtitle, author, and table links
+3. Update background image reference in body CSS:
+   ```css
+   body {
+       background-image: url('yourimage.jpg');
+   }
+   ```
 
-### Browser Autoplay Policy
-- **Chrome/Edge**: Requires HTTPS or localhost for autoplay
-- **Firefox**: Allows autoplay with muted attribute fallback
-- **Safari**: Requires user interaction first (click anywhere on page)
-- **Mobile**: May require user interaction due to bandwidth concerns
+### Add New Retailer Links
+1. Create a new button cell in the grid:
+   ```html
+   <div class="btn-3d-small">
+       <img src="newretailer.png" alt="Retailer Name">
+       <a href="https://link-to-book.com" target="_blank"></a>
+   </div>
+   ```
 
-## 🧪 Testing Checklist
-
-Before deployment:
-- [ ] All 9 pages load correctly
-- [ ] Navigation links work bidirectionally
-- [ ] Images display properly on all pages
-- [ ] Audio plays automatically (or with user interaction on mobile)
-- [ ] 3D tilt effects work on desktop
-- [ ] Countdown timer counts down accurately
-- [ ] All 100+ retailer links return 200 status
-- [ ] Site is fully responsive on mobile
-- [ ] Touch interactions work on tablets
-- [ ] Color contrast meets WCAG AA standards (verified)
-
-## 🔧 Customization
-
-### Changing Colors
-Edit the CSS variables in the `<style>` section of each page:
+### Change Color Scheme
+Update CSS variables in `<style>`:
 ```css
 :root {
-    --neon-accent: #00ff00;  /* Change to custom green */
-    --neon-blue: #00d4ff;    /* Change to custom blue */
+    --primary: #1a4d7a;      /* Main blue */
+    --accent: #00d9ff;       /* Cyan accent */
+    --text: #ffffff;         /* White text */
 }
 ```
 
-### Changing Countdown Date
-Edit Page #7 JavaScript:
-```javascript
-const targetDate = new Date('June 14, 2026 00:00:00').getTime();
-// Change to your desired date
-```
+### Replace Audio File
+1. Prepare MP3 or AAC file
+2. Replace `eydis.aac` with your file
+3. Update in all pages:
+   ```html
+   <audio id="bgMusic" autoplay loop>
+       <source src="yourfile.mp3" type="audio/mpeg">
+   </audio>
+   ```
 
-### Custom Audio
-Replace `kelvin.aac` with your own audio file (AAC, MP3, OGG supported):
+## 📊 Analytics & SEO
+
+### Meta Tags (Add to all pages)
 ```html
-<audio id="bgMusic" loop>
-    <source src="your-audio-file.aac" type="audio/aac">
-</audio>
+<meta name="description" content="Bibliography of Pablo Mera and Vanina Vergara">
+<meta name="keywords" content="books, authors, memoir, fiction, Spanish, English">
+<meta name="author" content="Pablo Mera, Vanina Vergara">
+<meta property="og:image" content="https://yoursite.com/preview-image.jpg">
 ```
 
-## 📊 Performance
-
-- **Load Time**: <2 seconds (optimized for global CDN)
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices)
-- **Bundle Size**: ~200KB (HTML + CSS + JS, assets separate)
-- **Time to Interactive**: <1.2s on desktop
-
-## 🛡️ Browser Support
-
-| Browser | Version | Support |
-|---------|---------|---------|
-| Chrome | 90+ | ✅ Full |
-| Firefox | 88+ | ✅ Full |
-| Safari | 14+ | ✅ Full |
-| Edge | 90+ | ✅ Full |
-| Mobile Chrome | Latest | ✅ Full |
-| Mobile Safari | 14+ | ✅ Full |
-
-## 📝 SEO & Meta Information
-
-Each page includes:
-- Proper UTF-8 character encoding for Spanish/English
-- Viewport meta tag for mobile responsiveness
-- Descriptive page titles
-- Language attribute (lang="es" or lang="en")
-
-### Recommended Additional Meta Tags
-```html
-<meta name="description" content="...">
-<meta name="keywords" content="...">
-<meta name="author" content="Vanina Vergara & Pablo Mera">
-<meta property="og:image" content="...">
+### Sitemap (Optional)
+Create `sitemap.xml`:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://yourusername.github.io/index.html</loc></url>
+  <url><loc>https://yourusername.github.io/page2.html</loc></url>
+  <!-- ... add all pages ... -->
+</urlset>
 ```
 
-## 🐛 Known Limitations
+## 🐛 Troubleshooting
 
-1. **Audio Autoplay**: May require user interaction on some mobile browsers
-2. **3D Tilt**: Disabled on touch devices (replaced with press effects)
-3. **Countdown**: Based on client-side time (server time sync recommended)
-4. **Link Verification**: Manual link checks recommended quarterly
+### Audio Not Playing
+- Check file path and format (AAC/MP3 supported)
+- Verify browser allows audio autoplay
+- Test on different browsers/devices
+- On iOS Safari: Ensure not in silent mode
+
+### Images Not Loading
+- Verify image filenames match exactly (case-sensitive on Linux)
+- Check image format: JPG, PNG, JPEG supported
+- Ensure images are in same directory as HTML files
+- Use relative paths: `src="image.jpg"` not `src="/images/image.jpg"`
+
+### Links Not Working
+- Verify target pages exist (check filename spelling)
+- External links: test in new tab directly
+- WhatsApp link format: `http://wa.link/XXXXX` (ensure correct code)
+- Amazon links: some regional links may require localization
+
+### Mobile Display Issues
+- Clear browser cache (Ctrl+Shift+Delete or Settings)
+- Test with device zoom at 100%
+- Verify viewport meta tag present
+- Check for CSS overflow issues with `max-width: 100%`
+
+## 📝 Code Quality
+
+### Performance
+- CSS: Single `<style>` block (no external files)
+- JavaScript: Minimal inline code
+- Images: Optimized for web (compressed, appropriate format)
+- Audio: AAC format for smaller file size
+- **Lighthouse Score Target**: 85+
+
+### Accessibility
+- ✅ High contrast text (White on Blue)
+- ✅ Large touch targets (44px minimum)
+- ✅ Semantic HTML structure
+- ✅ Descriptive alt text for all images
+- ✅ Readable font sizes (16px minimum)
+- ✅ No flashing/auto-playing video
+
+### Browser Compatibility
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+- ✅ Mobile Safari (iOS 12+)
+- ✅ Chrome Mobile (Android 6+)
+
+## 📦 Files Size Reference
+
+- **HTML files** (11 files): ~50-70 KB each
+- **Images**: 100-300 KB each (varies by size)
+- **Audio (eydis.aac)**: ~3-5 MB
+- **Total site size**: ~50-80 MB (depending on image quality)
+
+## 🤝 Support & Maintenance
+
+### Regular Updates
+- Check external retailer links quarterly
+- Verify WhatsApp/Google Calendar links still work
+- Test audio playback on new iOS/Android versions
+- Update copyright year annually
+
+### Backup Strategy
+1. Keep local copy with Git
+2. Export GitHub repo regularly
+3. Save image originals in higher resolution
+4. Document all link changes in commit messages
 
 ## 📄 License
 
-© 2026 Vanina Vergara & Pablo Mera. All rights reserved.
-
-This website and its content are proprietary. Permission required for distribution, modification, or commercial use.
-
-## 🤝 Contributing
-
-For bug reports or suggestions:
-1. Create an issue with detailed description
-2. Include screenshots/screen recordings
-3. Test on multiple browsers/devices
-
-## 📞 Support
-
-For technical support or questions:
-- Check the project's issue tracker
-- Contact the site administrator
+This website template is created for Pablo Mera and Vanina Vergara's bibliography. All book covers and content are copyrighted by the respective authors.
 
 ---
 
-**Last Updated**: June 2026  
-**Version**: 1.0  
-**Compatibility**: HTML5, CSS3, ES6+ JavaScript
+## 🚀 Quick Start Checklist
+
+- [ ] All 11 HTML files ready
+- [ ] All required images in directory
+- [ ] Audio file (eydis.aac) included
+- [ ] Local testing complete (open index.html in browser)
+- [ ] Git repo created on GitHub
+- [ ] Files pushed to main branch
+- [ ] GitHub Pages enabled in Settings
+- [ ] Site live at yourusername.github.io
+- [ ] All links tested (internal & external)
+- [ ] Mobile testing on real devices
+- [ ] Audio playback verified
+
+---
+
+**Created**: October 2026  
+**Updated**: October 2026  
+**Version**: 1.0
+
+For questions or technical support, contact the development team.
